@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" formControlName="name">
+                            <span class="text-danger"
+                                *ngIf="(registerFormControl.name.touched || submitted) && registerFormControl.name.errors?.required">
+                                Name is required
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" class="form-control" formControlName="email">
+                            <span class="text-danger"
+                                *ngIf="(registerFormControl.email.touched || submitted) && registerFormControl.email.errors?.required">
+                                Email is required
+                            </span>
+                            <span class="text-danger"
+                                *ngIf="registerFormControl.email.touched && registerFormControl.email.errors?.email">
+                                Enter a valid email address
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea type="text" rows="5"  class="form-control" formControlName="username"></textarea>
+                            <span class="text-danger"
+                                *ngIf="(registerFormControl.username.touched || submitted) && registerFormControl.username.errors?.required">
+                                Message is required
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
