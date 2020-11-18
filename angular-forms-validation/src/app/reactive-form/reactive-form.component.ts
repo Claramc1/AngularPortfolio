@@ -21,13 +21,9 @@ export class ReactiveFormComponent implements OnInit {
     this.registerForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      username: ['', [Validators.required], this.customValidator.userNameValidator.bind(this.customValidator)],
-      password: ['', Validators.compose([Validators.required, this.customValidator.patternValidator()])],
-      confirmPassword: ['', [Validators.required]],
+      username: ['', Validators.required], 
     },
-      {
-        validator: this.customValidator.MatchPassword('password', 'confirmPassword'),
-      }
+
     );
   }
 
